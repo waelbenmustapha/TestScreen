@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import React, {type PropsWithChildren} from 'react';
@@ -15,9 +16,9 @@ const ButtonComp: React.FC<
   }>
 > = ({title}) => {
   return (
-    <View style={styles.button}>
+    <TouchableOpacity style={styles.button}>
       <Text style={styles.buttonText}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -26,8 +27,15 @@ const App = () => {
     <SafeAreaView style={styles.sectionContainer}>
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
       <View style={styles.backAndSkipContainer}>
-        <Image  source={{uri: 'https://i.postimg.cc/N0BdD55x/back-arrow.png'}} style={{height:30,width:30}}/>
-        <Text style={styles.skipText}>Skip</Text>
+        <TouchableOpacity>
+          <Image
+            source={{uri: 'https://i.postimg.cc/N0BdD55x/back-arrow.png'}}
+            style={{height: 30, width: 30}}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.skipText}>Skip</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.secondContainer}>
         <View style={styles.locationContainer}>
@@ -98,7 +106,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 17,
-    fontWeight:"400",
+    fontWeight: '400',
     textAlign: 'center',
     color: 'white',
   },
